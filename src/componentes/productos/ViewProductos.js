@@ -11,21 +11,21 @@ export const ViewProductos = ({producto}) => {
                 <p className='mb-1 text-sm text-gray-50 uppercase '>Descripción:{descripcion} </p>
                 <p className='mb-1 text-gray-50'>Stock:{stock} </p>
                 <p className='mb-1  text-gray-50'>Precio:{precio} </p>
-                <img src={imagen} width="150" height="150" 
+                <img src={imagen} width="200" height="200" 
                 ></img>
             
             </div>
 
             <div className='flex flex-col lg:flex-row gap-2'>
-                    <button
-                          className="bg-indigo-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
-                          //onClick={() => handleModalEditarTarea(tarea)}
-                      >Editar</button>
+            <button
+                    className="bg-indigo-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
+                    //onClick={() => handleModalEditarTarea(tarea)}
+                >Editar</button>
 
-                    <button
-                          className="bg-red-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
-                         // onClick={() => handleModalEliminarTarea(tarea)}
-                      >Eliminar</button>
+            <button
+                    className="bg-red-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
+                    // onClick={() => handleModalEliminarTarea(tarea)}
+                >Eliminar</button>
 
             </div>
         </div>
