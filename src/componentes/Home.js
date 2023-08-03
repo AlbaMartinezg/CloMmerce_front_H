@@ -7,13 +7,13 @@ const Home = () =>{
 
     const [categoria, setCategoria] = useState([]);
 
-  const cargarCategorias = async () =>{
-    const response = await crud.GET(`/api/categorias`);
-    setCategoria(response.categoria);
-  }
-  useEffect(()=>{
-    cargarCategorias();
-  },[]);
+    const cargarCategorias = async () =>{
+      const response = await crud.GET(`/api/categorias`);
+      setCategoria(response.categoria);
+    }
+    useEffect(()=>{
+      cargarCategorias();
+    },[]);
   
   const [productos, setProductos] = useState([]);
 
@@ -27,59 +27,56 @@ const Home = () =>{
    
     return(       
     <main className="flex-1"> 
-      <div className="flex justify-center md:w-2/3 lg:w-2/5">                
-        <img src="../../../../images/clommerce_3.png" />
-          
-          <Link
-              className="block text-center my-5 text-gray-300"
-              to={"/login"}
-              >
-              Iniciar Sesión
-          </Link>
+      <div className="container mx-auto flex justify-center md:w-2/3 lg:w-2/5"> 
+        <h1  className="inline p-8 bg-gradient-to-r from-indigo-200 via-violet-700 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">Clo-Mmerce</h1>
+          <Link  className="block text-center my-5 text-gray-300" to={"/login"}> Iniciar Sesión </Link>   
       </div> 
-        <div className="flex-1 bg-white">
+
+      <div className="flex-1 bg-white">
           <div className="py-16 sm:py-24 xl:mx-auto xl:max-w-7xl xl:px-8">
             <div className="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
-              <h2 className="text-2xl font-bold tracking-tight text-gray-900">Navega por Categoría</h2>
+              <h1 className="text-2xl font-bold tracking-tight text-gray-900">Navega por Categoría</h1>
+
               <a href="/" className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
                 Más Categorías
                 <span aria-hidden="true"> &rarr;</span>
               </a>
             </div>
-
+            
           <div className="mt-4 flow-root rounded-r-full">
             <div className="-my-2">
               <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
               <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-                  {categoria.map((category) => (
-                    <a
+               
+                {categoria.map((category) => (
+                  <div flex-1>
+                    <div
                       key={category.nombre}
                       href={category.href}
-                      className="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto"
+                      className="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-5 hover:opacity-75 xl:w-auto"
                     >
-                      <span aria-hidden="true" className="absolute inset-0">
+                      <p aria-hidden="true" className="absolute inset-0">
                         <img src={category.imagen} alt="" className="h-full w-full object-cover object-center" />
-                      </span>
-                      <span
-                        aria-hidden="true"
-                        className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"
-                      />
-                      <span className="relative mt-auto text-center text-xl font-bold text-white">{category.nombre}</span>
-                    </a>
-                  ))}
-                </div>
+                      </p>
+                      </div>
+                      <a aria-hidden="true" className=" bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50" > 
+                        <p className="relative mt-auto text-center text-xl font-bold text-black">{category.nombre}</p>
+                      </a>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </div>
+        </div>        
       </div>
+      </div>    
+
       <div className="bg-gray-300">
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h2 className="text-xl font-bold text-gray-900">Línea de Productos</h2>
-
+          <h1 className="text-xl font-bold text-gray-900">Nuestros Productos</h1>
           <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-          {productos && productos.map((product) => (
-              <div key={product.id} className="mb-8">
+            {productos.map((product) => (
+              <div key={product.id}>
                 <div className="relative">
                   <div className="relative h-72 w-full overflow-hidden rounded-lg">
                     <img
@@ -100,18 +97,10 @@ const Home = () =>{
                     <p className="relative text-lg font-semibold text-white">{product.precio}</p>
                   </div>
                 </div>
-                <div className="mt-6">
-                  <a
-                    href={product.href}
-                    className="relative flex items-center justify-center rounded-md border border-transparent bg-gray-100 py-2 px-8 text-sm font-medium text-gray-900 hover:bg-gray-200"
-                  >
-                    Add to bag<span className="sr-only">, {product.nombre}</span>
-                  </a>
-                </div>
+                
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </main>               
@@ -119,3 +108,55 @@ const Home = () =>{
 }
 
 export default Home;
+
+/* El siguiente código es para colocar el link de dicionar al carro de compras
+
+<div className="mt-6">
+  <a
+    href={product.href}
+    className="relative flex items-center justify-center rounded-md border border-transparent bg-gray-100 py-2 px-8 text-sm font-medium text-gray-900 hover:bg-gray-200"
+  >
+    Add to bag<span className="sr-only">, {product.name}</span>
+  </a>
+</div>
+
+ <div className="flex-1 bg-white">
+          <div className="py-16 sm:py-24 xl:mx-auto xl:max-w-7xl xl:px-8">
+            <div className="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900">Navega por Categoría</h2>
+
+              <a href="/" className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
+                Más Categorías
+                <span aria-hidden="true"> &rarr;</span>
+              </a>
+            </div>
+
+          <div className="mt-4 flow-root rounded-r-full">
+            <div className="-my-2">
+              <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+              <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+               
+                {categoria.map((category) => (
+                  <a
+                    key={category.nombre}
+                    href={category.href}
+                    className="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto"
+                  >
+                    <span aria-hidden="true" className="absolute inset-0">
+                      <img src={category.imagen} alt="" className="h-full w-full object-cover object-center" />
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"
+                    /> <br/><br/>
+                    <span className="relative mt-auto text-center text-xl font-bold text-white">{category.nombre}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+      </div>
+
+*/ 
