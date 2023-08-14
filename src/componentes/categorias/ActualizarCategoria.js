@@ -4,7 +4,7 @@ import Sidebar from "../Sidebar";
 import { useNavigate, useParams } from 'react-router-dom';
 import crud from '../../conexiones/crud';
 import swal from 'sweetalert';
-import HeadAll from "../Layout";
+
 
 const ActualizarCategoria = () => {
   
@@ -70,7 +70,6 @@ const onSubmit = (e) => {
 
   return (
     <>
-      <HeadAll/>
       <Header/>
       <div className="md:flex md:min-h-screen">
         <Sidebar/>

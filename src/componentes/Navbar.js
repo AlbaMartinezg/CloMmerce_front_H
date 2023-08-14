@@ -1,10 +1,100 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import clommerce from "./images/clommerce.png"
 
-function Navbar(children){
+const Navbar = () =>{
+ 
+   return(  
+    <main className="flex-1">
+        <div className="">
+            <nav className="justify-evenly space-x-10 content-center  ">
+                <div className="flex h-[20mm] py-7 mb-4 px-4" > {/* Aquí se establece la altura */}
+                     <div className="container mx-auto items-center md:w-1/4 lg:w-2/5 ">
+                        <img className="w-auto h-12" src={clommerce} />
+                    </div>
+                            
+                    <div className="md:w-2/4 ">
+                        <a href="/" className="text-2xl font-light px-3 py-2 text-white rounded-lg hover:bg-fuchsia-900 hover:text-slate-300">
+                            Home
+                        </a>
+                        <a href="/view-categorias" className="text-2xl font-light px-3 py-2 text-white rounded-lg hover:bg-fuchsia-900 hover:text-slate-300">Categorias</a>
+
+                        <a href="/view-productos" className="text-2xl font-light px-3 py-2 text-white rounded-lg hover:bg-fuchsia-900 hover:text-slate-300">Productos</a>
+
+                        <a href="/contactenos" className="text-2xl font-light px-3 py-2 text-white rounded-lg hover:bg-fuchsia-900 hover:text-slate-300">Contáctenos</a>
+                    </div>
+                        <div >
+                            <Link
+                                className="bg-fuchsia-900 bg-slate-900 mr-2 w-full py-3 p-4 text-center text-white font-light text-2xl rounded hover:cursor-pointer hover:bg-indigo-900 transition-colors "
+                                to={"/login"}
+                                >
+                                Iniciar Sesión
+                            </Link>
+                             {/* Agregar enlaces a redes sociales */}
+              <div className="flex mt-2 space-x-2">
+                <a
+                  href="https://www.facebook.com/Edilmamg/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-slate-300"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    Facebook
+                  </svg>
+                </a>
+                <a
+                  href="enlace_red_social_2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-slate-300"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    {/* Agregar el icono de la otra red social */}
+                  </svg>
+                </a>
+                {/* Agregar más enlaces a redes sociales si es necesario */}
+              </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </main>
+    )
+}
+
+export default Navbar;
+
+/*import React from "react";
+import { Link } from "react-router-dom";
+
+function Navbar(){
 
     return(    
-        <nav className="flex justify-between item-center h-16 bg-white text-black ">
+
+        <nav class="flex justify-center space-x-4">
+            <a href="/" class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Home</a>
+            <a href="/categorias" class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Team</a>
+            <a href="/productos" class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Projects</a>
+            <a href="/contactenos" class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Reports</a>
+            </nav>
+      
+    )
+}
+
+export default Navbar;   
+
+/*
+  <nav className="flex justify-between item-center h-16 bg-white text-black ">
             <Link to="/"className="pl-8"> Logo </Link>
             <div className="px-4 cursor-pointer md:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" 
@@ -18,12 +108,9 @@ function Navbar(children){
             strokeLinecap="round" 
             strokeLinejoin="round" 
             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-</svg>
-
+            </svg>
 
             </div>
         </nav>
-    )
-}
-
-export default Navbar;   
+        
+*/

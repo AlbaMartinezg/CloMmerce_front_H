@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import crud from '../conexiones/crud';
 import swal from "sweetalert";
+import NavLogo from "./navlogo";
 
 const Login = () =>{
     const navigate = useNavigate();
@@ -83,55 +84,69 @@ const Login = () =>{
         //la siguiente instrucción es para hacerlo responsive //container mx-auto mt-5 md:mt-20
         // PARA BUSCAR DEGRADES EN TAILWIND Backgrounds // Gradient Color Stops//
         //https://tailwindcss.com/docs/gradient-color-stops
-        <main className="container mx-auto mt-5 md:mt-20 p-5 md:flex md:justify-center"> 
-            <div className="md:w-2/3 lg:w-2/5">                
-                <h1 
-                className="inline bg-gradient-to-r from-indigo-200 via-violet-700 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent ">
-                    Clo-Mmerce <br/>
-                    Iniciar Sesión 2</h1>
-                <form 
-                onSubmit={onSubmit} 
-                className="my-10 bg-white shadow rounded-lg p-10">
-                    
-                    <div className="my-5">
-                        <label className="uppercase text-gray-600 block text-lx font-bold">Email</label>
-                        <input 
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Email de Registro"
-                        className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
-                        value={email}
-                        onChange={onChange}
-                        /><br/><br/>
-                
-                        <label className="uppercase text-gray-600 block text-lx font-bold">Password</label>
-                        <input 
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Password de Registro"
-                        className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
-                        value={password}
-                        onChange={onChange}
-                        /><br/><br/>
-                    </div>    
+        <>     
+        <NavLogo/>
+          <main className=" flex-1 bg-gray-300 mx-auto p-3 sm: flex  justify-center"> 
+          <div className="md:w-2/3 lg:w-2/5">             
+          <form 
+          onSubmit={onSubmit} 
+          className="my-10 bg-white shadow rounded-lg p-10">
+            <div className=" text-center  pt-5">
+              <p className="bg-violet-900 mr-1 w-15 py-3 p-2 text-center text-white font-light text-4xl hover:cursor-pointer hover:bg-slate-700 transition-colors rounded-xl">               
+                Iniciar Sesión</p>
+            </div>         
+              
+            <div className="my-5">
+                <label className="uppercase text-gray-600 block text-lx font-bold">Email</label>
+                <input 
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email de Registro"
+                className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
+                value={email}
+                onChange={onChange}
+                /><br/><br/>
+        
+                <label className="uppercase text-gray-600 block text-lx font-bold">Password</label>
+                <input 
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password de Registro"
+                className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
+                value={password}
+                onChange={onChange}
+                /><br/><br/>
+            </div>    
 
-                    <input 
-                        type="submit" 
-                        placeholder="Iniciar Sesión" 
-                        className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-900 transition-colors"/>
-                     <label 
-                        className ="text-gray-600 block text-lx font-bold">¿No tienes una cuenta?</label>
-                    <Link  
-                        className="block text-center my-5 "
-                        to ={"/crear-cuenta"}>
-                        Registrate
-                    </Link> 
-                </form>
-            </div> 
-        </main>               
-    );
+            <input 
+                type="submit" 
+                placeholder="Iniciar Sesión" 
+                className="bg-violet-700 mb-5 w-full py-3 text-white uppercase font-bold rounded-xl hover:cursor-pointer hover:bg-violet-900 transition-colors"/>
+
+              <label 
+                className ="text-gray-600 block text-2xl font-bold p-6">¿No tienes una cuenta?</label> 
+
+            <div className="flex justify-center">
+
+              <Link  
+                className="bg-violet-600 mr-6 w-50 py-3 px-7 text-white uppercase font-bold rounded-xl hover:cursor-pointer hover:bg-violet-900 transition-colors p-5"
+                to ={"/crear-cuenta"}>
+                Registrate
+              </Link> 
+
+              <Link  
+                  className="bg-violet-500 mx-5 w-50 py-3 px-10 text-white uppercase font-bold rounded-xl hover:cursor-pointer hover:bg-violet-900 transition-colors "
+                  to ={"/"}>
+                  Salir
+              </Link> 
+            </div>
+          </form>
+          </div> 
+      </main>   
+    </>              
+  );
 }
 
 export default Login;

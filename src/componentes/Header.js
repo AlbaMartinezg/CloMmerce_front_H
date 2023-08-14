@@ -15,14 +15,14 @@ const Header = () =>{
         <header className="px-4 py-5 bg-white border-b">
             <div className="md:flex md:justify-between">
                 <h2 className="text-4xl text-violet-600 font-black text-center mb-5 md:mb-0">
-                Clo-Mmerce Panel de Administrador #2
+               Administrador
                 </h2>
 
                 <div className="flex flex-col md:flex-row items-center gap-4">
                     <input 
                         type="submit"
                         value="Cerrar Sesión"
-                        className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-300 transition-colors"
+                        className="bg-violet-600 mb-5 w-full p-5 py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-300 transition-colors"
                         onClick={cerrarSesion}
                     />
                 </div>

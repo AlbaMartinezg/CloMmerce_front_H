@@ -61,21 +61,21 @@ const CrearCategoria = () =>{
     return(
         <>
             <Header/>
-                <div className="md:flex md:min-h-screen">
+                <div className="md:flex md:min-h-screen ">
                 <Sidebar/>
-                <main className="mt-10 flex justify-center">
+                <main className="mt-10 flex justify-center ">
                     <div className="mt-10 flex justify-center">
-                        <h1 className="inline bg-gradient-to-r from-indigo-200 via-violet-700 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
+                        <h1 className="inline bg-gradient-to-r from-indigo-200 via-violet-700 to-indigo-200 bg-clip-text font-display text-5xl text-center  tracking-tight text-transparent ">
                         Crear Categoría
                         </h1>                        
                     </div>
-                    <div className="mt-10 flex justify-center">
+                    <div className="mt-10 flex justify-center py-5">
                         <form 
                         onSubmit={onSubmit} 
-                        className="my-10 bg-white shadow rounded-lg p-10">
+                        className=" my-10 bg-white shadow rounded-lg p-10">
                             
                             <div className="my-5">
-                                <label className="uppercase text-gray-600 block text-lx font-bold">Nombre de la Categoría</label>
+                                <label className="uppercase text-gray-600 block text-lx font-bold">Nombre</label>
                                 <input 
                                 type="nombre"
                                 id="nombre"
@@ -86,7 +86,7 @@ const CrearCategoria = () =>{
                                 onChange={onChange}
                                 /><br/><br/>   
 
-                                <label className="uppercase text-gray-600 block text-lx font-bold">Nombre de la Categoría</label>
+                                <label className="uppercase text-gray-600 block text-lx font-bold">Imagen</label>
                                 <input 
                                 type="text"
                                 id="imagen"
@@ -100,7 +100,7 @@ const CrearCategoria = () =>{
                             </div>    
                             <input 
                                 type="submit" 
-                                value="Crear Categoria" 
+                                value="Crear" 
                                 className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-900 transition-colors"/>                                                      
                         </form>
                     </div>

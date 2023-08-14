@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import crud from '../conexiones/crud';
+import NavLogo from "./navlogo";
 
 const CrearCuenta = ()=>{
     const navigate = useNavigate();
@@ -104,13 +105,20 @@ const CrearCuenta = ()=>{
     }
 
     return(
-        <main className="container mx-auto mt-5 md:mt-20 p-5 md:flex md:justify-center"> 
-            <div className="md:w-2/3 lg:w-2/5">                
-                <h1 className="inline bg-gradient-to-r from-indigo-200 via-violet-700 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">Clo-Mmerce Iniciar Sesión</h1>
+
+        <>     
+        <NavLogo/>
+      
+        <main className=" flex-1 bg-gray-300 mx-auto p-3 md:flex md:justify-center"> 
+            <div className="md:w-2/3 lg:w-2/5">  
                 <form 
-                className="my-10 bg-white shadow rounded-lg p-10"
+                className="my-10 bg-white shadow rounded-lg p-7"
                 onSubmit={onSubmit}
                 >
+                    <div className=" text-center ">
+                            <p className="bg-indigo-900 mr-1 w-15 py-3 text-center text-white font-bold text-4xl  hover:cursor-pointer hover:bg-emerald-900 transition-colors rounded-xl ">               
+                        Crear Cuenta</p>
+                    </div>          
                     <div className="my-5">
                         <label className="uppercase text-gray-600 block text-lx font-bold">Nombre</label>
                         <input 
@@ -156,16 +164,26 @@ const CrearCuenta = ()=>{
                         />
                     </div>
                     
-                    <input 
-                    type="submit"
-                    value="Registar Usuario"
-                    className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-300 transition-colors"
-                    />
+                    <div flex-1>
+                        <input 
+                        type="submit"
+                        value="Registrar Usuario"
+                        className="bg-indigo-800 mb-5 w-full py-3 text-white text-2xl font-bold rounded-xl hover:cursor-pointer hover:bg-violet-500 transition-colors"
+                        />
 
-                    <Link className="block text-center my-5 " to={"/"}>Regresar</Link>
+                    </div>
+                    <div  flex-1>
+                        <Link
+                            className="flex justify-center bg-indigo-700 mb-5 w-full h-10  text-white font-light text-2xl rounded-xl hover:cursor-pointer hover:bg-indigo-900 transition-colors"
+                            to={"/"}
+                            >
+                        Regresar al Inicio
+                        </Link>
+                    </div> 
                 </form>
             </div> 
-        </main> 
+        </main>
+        </>    
     );
 }
   

@@ -4,6 +4,7 @@ import Sidebar from "../Sidebar";
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import crud from "../../conexiones/crud";
 import ViewProductos from "./ViewProductos";
+import Navbar from "../Navbar";
 
 
 const HomeProductos = () => {
@@ -26,6 +27,7 @@ const HomeProductos = () => {
 
   return (
     <>
+    <Navbar/>
       <Header/>
       <div className="md:flex md:min-h-screen">
         <Sidebar/>

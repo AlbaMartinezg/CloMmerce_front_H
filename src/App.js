@@ -8,8 +8,10 @@ import CrearCategoria from './componentes/categorias/CrearCategoria';
 import ActualizarCategoria from './componentes/categorias/ActualizarCategoria';
 import HomeProductos from './componentes/productos/HomeProductos';
 import CrearProductos from './componentes/productos/CrearProductos';
-import Layout from './componentes/Layout';
 import Navbar from './componentes/Navbar'
+import ViewCategorias from './componentes/categorias/ViewCategorias';
+import ViewProductos from './componentes/productos/ViewProductos';
+import Contactenos from './componentes/Contactenos';
 
 
 function App(){
@@ -24,8 +26,10 @@ function App(){
         <Route path="/actualizar-categoria/:idCategoria" exact element= {<ActualizarCategoria/>}/>
         <Route path="/home-productos/:idCategoria" exact element= {<HomeProductos/>}/>
         <Route path="/crear-producto/:idCategoria" exact element= {<CrearProductos/>}/>
-        <Route path="/layout" exact element= {<Layout/>}/>
+        <Route path="/contactenos" exact element= {<Contactenos/>}/>
         <Route path="/navbar" exact element= {<Navbar/>}/>
+        <Route path="/view-categorias" exact element= {<ViewCategorias/>}/>
+        <Route path="/view-productos" exact element= {<ViewProductos/>}/>
       </Routes>
     </Router>
   );
