@@ -85,44 +85,45 @@ const Admin = () => {
         Lista de Categorías
         </h1>                        
     </div>
-    <div >
-      <table >
-        <div className="mt-10 flex justify-center">
-        <thead className="bg-white" >
-          <tr >
-            <th>Imagen</th>
-            <th>Nombre</th>
-            <th>ID</th>
-            <th>Opciónes</th>
+    <div className="flex-1">
+      <div className="flex justify-center p-3">
+      <table>
+        <thead className="bg-purple-700 mt-10 font-display" >        
+          <tr className="text-center text-white uppercase font-bold ">
+            <th className="py-2">Imagen</th>
+            <th className="py-2">Nombre</th>
+            <th className="py-2">ID</th>
+            <th className="py-2">Opciones</th>
           </tr>
+    
         </thead>
-        </div>
 
         <tbody className="bg-white">
-          {
+          
+          {            
             categoria.map(
               item => 
               <tr key={item._id}>
-                <td><img src={item.imagen} width="150" height="150"></img></td>
-                <td>{item.nombre}</td>
-                <td>{item._id}</td>
+                <td className="p-4"><img src={item.imagen} width="150" height="150"></img></td>
+                <td className="p-4">{item.nombre}</td>
+                <td className="p-4">{item._id}</td>
                 <td>
                 <input 
                 type="submit"
                 value="Eliminar"
-                className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-300 transition-colors"
+                className="bg-orange-600 mb-5 w-full py-2 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-indigo-300 transition-colors"
                onClick={(e) => borrarCategoria(e, item._id)}
             />
              <input 
                 type="submit"
                 value="Actualizar"
-                className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-300 transition-colors"
+                className="bg-indigo-600 mb-5 w-full py-4 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-indigo-300 transition-colors"
                 onClick={(e) => actualizarCategoria(item._id)}
             />
              <input 
                 type="submit"
                 value="Crear Producto"
-                className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-300 transition-colors"
+                className="bg-teal-700 mb-5 w-full py-4 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-indigo-300 transition-colors"
                 onClick={(e) => crearProductos(item._id)}
             />
                 </td>
@@ -133,6 +134,7 @@ const Admin = () => {
         </tbody>
 
       </table>
+      </div>
     </div>
   </main>
 </div>

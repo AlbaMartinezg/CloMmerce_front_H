@@ -15,8 +15,7 @@ export const ViewProductos = ({producto}) => {
     },[]);
      
     return(
-        <>     
-        <Navbar/>
+        <> 
         <div className="bg-gray-300">
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h1 className="text-xl font-bold text-gray-900">Nuestros Productos</h1>

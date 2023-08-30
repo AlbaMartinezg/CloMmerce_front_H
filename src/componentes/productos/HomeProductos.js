@@ -27,8 +27,7 @@ const HomeProductos = () => {
 
   return (
     <>
-    <Navbar/>
-      <Header/>
+    <Header/>
       <div className="md:flex md:min-h-screen">
         <Sidebar/>
         <main className="flex-1">
