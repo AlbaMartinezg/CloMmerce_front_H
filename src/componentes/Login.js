@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import crud from '../conexiones/crud';
 import swal from "sweetalert";
 import NavLogo from "./navlogo";
+import Navbar from "./Navbar";
 
 const Login = () =>{
     const navigate = useNavigate();
@@ -85,7 +86,7 @@ const Login = () =>{
         // PARA BUSCAR DEGRADES EN TAILWIND Backgrounds // Gradient Color Stops//
         //https://tailwindcss.com/docs/gradient-color-stops
         <>     
-        <NavLogo/>
+        <Navbar/>
           <main className=" flex-1 bg-gray-300 mx-auto p-3 sm: flex  justify-center"> 
           <div className="md:w-2/3 lg:w-2/5">             
           <form 

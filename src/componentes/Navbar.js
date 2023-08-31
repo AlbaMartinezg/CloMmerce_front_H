@@ -28,7 +28,7 @@ const Navbar = () =>{
                   </div> 
 
                   <div className="flex x-2 md:w-1/4 ">
-                    <a href="https://www.facebook.com/Edilmamg/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-slate-300 px-3 py-2">
+                    <a href="https://www.facebook.com/CloMmerce" target="_blank" rel="noopener noreferrer" className="text-white hover:text-slate-300 px-3 py-2">
                       <img className="w-auto h-12" src={facebook}/></a>
                     <a href="https://www.instagram.com/fasynga/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-slate-300 px-3 py-2" >
                       <img className="w-auto h-12" src={instagram}/>

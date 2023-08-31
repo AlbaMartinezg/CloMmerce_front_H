@@ -1,110 +1,119 @@
-
-
-
-
-
-
 import React, { useEffect, useState } from "react";
-import { Link} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import crud from '../conexiones/crud';
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 
-const Home = () =>{
+const Contactenos = () =>{
 
-    const [categoria, setCategoria] = useState([]);
+  const navigate = useNavigate();
 
-    const cargarCategorias = async () =>{
-      const response = await crud.GET(`/api/categorias`);
-      setCategoria(response.categoria);
-    }
-    useEffect(()=>{
-      cargarCategorias();
-    },[]);
-  
-  const [productos, setProductos] = useState([]);
+  const [usuario, setUsuario] = useState({
+      nombre:'',
+      email:'',
+      telefono:'',
+      mensaje:''
+  });
 
-  const cargarProductos = async () =>{
-    const response = await crud.GET(`/api/productos`);
-    setProductos(response.productos);
-  }
-  useEffect(()=>{
-    cargarProductos();
-  },[]);
+  const { nombre, email, telefono, mensaje} = usuario;
+
+  const onChange = (e)=>{
+      setUsuario({
+          ...usuario,
+          [e.target.name]: e.target.value
+      })
+  };
+
+    navigate("/");
+
+   // const onSubmit = (e) =>{
+      //e.preventDefault();
+      //ingresarCuenta();    }  
    
     return(  
       <>     
       <Navbar/>
- 
-       <div className="flex-1 bg-white">
-          <div className="py-16 sm:py-15 xl:mx-auto xl:max-w-7xl xl:px-4">
-          <div className="mt-4 flow-root rounded-r-lg">
-            <div className="-my-2">
-              <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-              <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8 shadow-gray-30">
-               
-                {categoria.map((category) => (
-                  <div flex-1>
-                    <div
-                      key={category.nombre}
-                      href={category.href}
-                      className="relative h-80 w-56 flex-col overflow-hidden p-5 hover:opacity-75 xl:w-auto rounded-lg"
-                    >
-                      <p aria-hidden="true" className="absolute inset-0">
-                        <img src={category.imagen} alt="" className="h-full w-full object-cover object-center" />
-                      </p>
-                      </div>
-                      <a aria-hidden="true" className=" bottom-0 h-2/3 bg-gradient-to-t from-gray-800" > 
-                        <p className="relative mt-auto text-center text-2xl font-bold text-violet-700">{category.nombre}</p>
-                      </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>        
-      </div>
-      </div>    
+      <main className=" flex-1 bg-gray-300 mx-auto p-3 sm: flex  justify-center"> 
+          <div className="md:w-2/3 lg:w-2/5">             
+          <form 
+          //onSubmit={onSubmit} 
+          className="my-10 bg-white shadow rounded-lg p-10">
+            <div className=" text-center  pt-5">
+              <p className="bg-violet-900 mr-1 w-15 py-3 p-2 text-center text-white font-light text-4xl hover:cursor-pointer hover:bg-slate-700 transition-colors rounded-xl">               
+                Contáctenos</p>
+            </div>         
+              
+            <div className="my-5">
+                <label className="uppercase text-gray-600 block text-lx font-bold">Nombre completo</label>
+                <input 
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Digite su Nombre"
+                className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
+                value={nombre}
+                onChange={onChange}
+                /><br/><br/>
 
-      <div className="bg-gray-300">
-        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h1 className="text-xl font-bold text-gray-900">Nuestros Productos</h1>
-          <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-            {productos.map((product) => (
-              <div key={product.id}>
-                <div className="relative">
-                  <div className="relative h-72 w-full overflow-hidden rounded-lg ">
-                    <img
-                      src={product.imagen}
-                      alt={product.imageAlt}
-                      className="h-full w-full object-cover object-center overflow-hidden p-1 hover:opacity-75"
-                    />
-                  </div>
-                  <div className="relative mt-4">
-                    <h3 className="text-center text-2xl font-bold text-gray-900">{product.nombre}</h3>
-                    <p className="text-center text-xl font-semibold text-black">{product.precio}</p>
-                    <p className="mt-1 text-center text-xl text-gray-500">{product.stock}</p>
-                  </div>
-                  <div className="absolute inset-x-0 top-0 flex h-72 items-end justify-end overflow-hidden rounded-lg p-4">
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black opacity-50"
-                    />
-                  </div>
-                </div>
-                
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
- <Footer/>
+                <label className="uppercase text-gray-600 block text-lx font-bold">Email</label>
+                <input 
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Digite su Email"
+                className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
+                value={email}
+                onChange={onChange}
+                /><br/><br/>
+        
+                <label className="uppercase text-gray-600 block text-lx font-bold">Teléfono de contacato</label>
+                <input 
+                type="number"
+                id="telefono"
+                name="telefono"
+                placeholder="Digite el número de telefono"
+                className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
+                value={telefono}
+                onChange={onChange}
+                /><br/><br/>
+
+                <label className="uppercase text-gray-600 block text-lx font-bold">Mensaje</label>
+                <input 
+                type="text"
+                id="mensaje"
+                name="mensaje"
+                placeholder="digite el mensaje"
+                className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
+                value={mensaje}
+                onChange={onChange}
+                /><br/><br/>
+            </div>    
+
+            <input 
+                type="submit" 
+                placeholder="Digite el Mensaje" 
+                className="bg-violet-700 mb-5 w-full py-3 text-white uppercase 
+                font-bold rounded-xl hover:cursor-pointer hover:bg-violet-900 transition-colors" to={"allumagu@gmail.com"}/>
+
+
+            <div className="flex justify-center">
+
+              <Link  
+                  className="bg-violet-500 mx-5 w-50 py-3 px-10 text-white uppercase font-bold rounded-xl hover:cursor-pointer hover:bg-violet-900 transition-colors "
+                  to ={"/"}>
+                  Inicio
+              </Link> 
+            </div>
+          </form>
+          </div> 
+      </main>         
+    <Footer/>
     </>             
   );
 }
 
-export default Home;
+export default Contactenos;
 
 /* El siguiente código es para colocar el link de dicionar al carro de compras
 

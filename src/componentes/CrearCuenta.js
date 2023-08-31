@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import crud from '../conexiones/crud';
 import NavLogo from "./navlogo";
+import Navbar from "./Navbar";
 
 const CrearCuenta = ()=>{
     const navigate = useNavigate();
@@ -107,7 +108,7 @@ const CrearCuenta = ()=>{
     return(
 
         <>     
-        <NavLogo/>
+        <Navbar/>
       
         <main className=" flex-1 bg-gray-300 mx-auto p-3 md:flex md:justify-center"> 
             <div className="md:w-2/3 lg:w-2/5">  

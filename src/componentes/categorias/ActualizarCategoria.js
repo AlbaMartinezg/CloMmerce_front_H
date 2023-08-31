@@ -86,7 +86,7 @@ const onSubmit = (e) => {
         className="my-10 bg-white shadow rounded-lg p-10"
     >
       <div className="my-5">
-        <label className="uppercase text-gray-600 block text-lx font-bold">Nombre de la categoria</label>
+        <label className="uppercase text-gray-600 block text-lx font-bold">Nombre</label>
         <input 
         type="nombre"
         id="nombre"
@@ -97,7 +97,7 @@ const onSubmit = (e) => {
         onChange={onChange}
         />
 
-        <label className="uppercase text-gray-600 block text-lx font-bold">Imagen de la categoria</label>
+        <label className="uppercase text-gray-600 block text-lx font-bold">Imagen</label>
         <input 
         type="text"
         id="imagen"
