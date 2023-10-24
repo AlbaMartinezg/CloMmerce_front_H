@@ -9,18 +9,18 @@ const Contactenos = () =>{
 
   const navigate = useNavigate();
 
-  const [usuario, setUsuario] = useState({
+  const [contacto, setContacto] = useState({
       nombre:'',
       email:'',
       telefono:'',
       mensaje:''
   });
 
-  const { nombre, email, telefono, mensaje} = usuario;
+  const { nombre, email, telefono, mensaje} = contacto;
 
   const onChange = (e)=>{
-      setUsuario({
-          ...usuario,
+      setContacto({
+          ...contacto,
           [e.target.name]: e.target.value
       })
   };
@@ -94,14 +94,14 @@ const Contactenos = () =>{
                 type="submit" 
                 placeholder="Digite el Mensaje" 
                 className="bg-violet-700 mb-5 w-full py-3 text-white uppercase 
-                font-bold rounded-xl hover:cursor-pointer hover:bg-violet-900 transition-colors" to={"allumagu@gmail.com"}/>
+                font-bold rounded-xl hover:cursor-pointer hover:bg-violet-900 transition-colors" to={""}/>
 
 
             <div className="flex justify-center">
 
               <Link  
                   className="bg-violet-500 mx-5 w-50 py-3 px-10 text-white uppercase font-bold rounded-xl hover:cursor-pointer hover:bg-violet-900 transition-colors "
-                  to ={"/"}>
+                  to ={"https://mail.google.com/mail/u/1/#inbox"}>
                   Inicio
               </Link> 
             </div>

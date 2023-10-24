@@ -5,67 +5,78 @@ import { useNavigate, useParams } from 'react-router-dom';
 import crud from '../../conexiones/crud';
 import swal from 'sweetalert';
 
-
-const ActualizarCategoria = () => {
+const ActualizarProductos = () => {
+  
   
   const navigate = useNavigate();
 
   const { idCategoria} = useParams();
   //console.log(idCategoria);
 
- const [categoria, setCategoria] = useState({
-    nombre:'',
-    imagen:''
- })
+    const [producto, setProducto ] = useState({
+      nombre:'',
+      descripcion:'',
+      stock:'',
+      precio:'',
+      imagen:'',
+      categoriaId: ''
+    
+    });
 
- const cargarCategoria = async () =>{
-    const response = await crud.GET(`/api/categorias/${idCategoria}`);
-    console.log(response);
-    setCategoria(response.categoria);
- }
-
- useEffect(() =>{
-    cargarCategoria();
- },[]);
-
-//console.log(categoria);
-
-const {nombre, imagen} = categoria;
-
-const onChange = (e) =>{
-    setCategoria({
-        ...categoria,
-            [e.target.name]: e.target.value
-    })
-};
-
-const actualizarCategoria = async () =>{
-    const data ={
-        nombre: categoria.nombre,
-        imagen: categoria.imagen
+    const cargarProducto = async () =>{
+        const response = await crud.GET(`/api/productos/${idCategoria}`);
+        console.log(response);
+        setProducto(response.producto);
     }
-    const response = await crud.PUT(`/api/categorias/${idCategoria}`, data);
-    const mensaje = "La categoría se actualizó correctamente";
-    swal({
-        title:'Información',
-        text: mensaje,
-        icon: 'success',
-        buttons:{
-          confirm:{
-            text: 'OK',
-            value: true,
-            visible: true,
-            className: 'btn btn-primary',
-            closeModal: true
-          }
+
+    useEffect(() =>{
+        cargarProducto();
+    },[]);
+
+    //console.log(categoria);
+
+    const { nombre, descripcion, stock, precio, imagen  } = producto;
+
+
+    const onChange = (e) =>{
+        setProducto({
+          ...producto,
+          [e.target.name]: e.target.value
+        })
+    };
+
+
+    const actualizarProducto = async () =>{
+        const data ={
+          nombre: producto.nombre,
+          descripcion: producto.descripcion,
+          stock: producto.stock,
+          precio: producto.precio,
+          imagen: producto.imagen,
+          categoriaId: idCategoria
         }
-      });
-      navigate("/admin");
-}
+        const response = await crud.PUT(`/api/productos/${idCategoria}`, data);
+        const mensaje = "El Producto se actualizó correctamente";
+        swal({
+            title:'Información',
+            text: mensaje,
+            icon: 'success',
+            buttons:{
+              confirm:{
+                text: 'OK',
+                value: true,
+                visible: true,
+                className: 'btn btn-primary',
+                closeModal: true
+              }
+            }
+          });
+          navigate(`/new-product/${idCategoria}`);
+    }
 
 const onSubmit = (e) => {
     e.preventDefault();
-    actualizarCategoria();
+    actualizarProducto();
 }
 
   return (
@@ -76,7 +87,7 @@ const onSubmit = (e) => {
         <main className="flex-1">
           <div className="mt-10 flex justify-center">
             <h1 className="inline bg-gradient-to-r from-indigo-200 via-violet-700 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
-              Actualizar Productos
+              Crear Productos
             </h1>
           </div>
 
@@ -135,25 +146,19 @@ const onSubmit = (e) => {
                   className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
                   value={imagen}
                   onChange={onChange}
-                  />
+                  />                  
                 </div>
               <input 
                   type="submit"
-                  value="Actualizar Productos"
+                  value="Crear Productos"
                   className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-300 transition-colors"
               />
-
-  </form>
-        </div>
-
-        </main>
-        
-     
+            </form>
+          </div>
+        </main>   
       </div>
-    
-    
     </>
-    );
+  );
 }
 
-export default ActualizarCategoria;
+export default ActualizarProductos;

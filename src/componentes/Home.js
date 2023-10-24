@@ -99,7 +99,7 @@ const Home = () => {
                   </div>
                   <div className="relative mt-4">
                     <h3 className="text-center text-2xl font-bold text-gray-900">{product.nombre}</h3>
-                    <p className="text-center text-xl font-semibold text-black">{product.precio}</p>
+                    <p className="text-center text-xl font-semibold text-black">{product.precio.toLocaleString()}</p>
                     <p className="mt-1 text-center text-xl text-gray-500">{product.stock}</p>
                   </div>
                   <div className="absolute inset-x-0 top-0 flex h-72 items-end justify-end overflow-hidden rounded-lg p-4">

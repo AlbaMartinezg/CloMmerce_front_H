@@ -13,55 +13,55 @@ const ActualizarCategoria = () => {
   const { idCategoria} = useParams();
   //console.log(idCategoria);
 
- const [categoria, setCategoria] = useState({
-    nombre:'',
-    imagen:''
- })
-
- const cargarCategoria = async () =>{
-    const response = await crud.GET(`/api/categorias/${idCategoria}`);
-    console.log(response);
-    setCategoria(response.categoria);
- }
-
- useEffect(() =>{
-    cargarCategoria();
- },[]);
-
-//console.log(categoria);
-
-const {nombre, imagen} = categoria;
-
-const onChange = (e) =>{
-    setCategoria({
-        ...categoria,
-            [e.target.name]: e.target.value
+    const [categoria, setCategoria] = useState({
+        nombre:'',
+        imagen:''
     })
-};
 
-const actualizarCategoria = async () =>{
-    const data ={
-        nombre: categoria.nombre,
-        imagen: categoria.imagen
+    const cargarCategoria = async () =>{
+        const response = await crud.GET(`/api/categorias/${idCategoria}`);
+        console.log(response);
+        setCategoria(response.categoria);
     }
-    const response = await crud.PUT(`/api/categorias/${idCategoria}`, data);
-    const mensaje = "La categoría se actualizó correctamente";
-    swal({
-        title:'Información',
-        text: mensaje,
-        icon: 'success',
-        buttons:{
-          confirm:{
-            text: 'OK',
-            value: true,
-            visible: true,
-            className: 'btn btn-primary',
-            closeModal: true
-          }
+
+    useEffect(() =>{
+        cargarCategoria();
+    },[]);
+
+    //console.log(categoria);
+
+    const {nombre, imagen} = categoria;
+
+    const onChange = (e) =>{
+        setCategoria({
+            ...categoria,
+                [e.target.name]: e.target.value
+        })
+    };
+
+    const actualizarCategoria = async () =>{
+        const data ={
+            nombre: categoria.nombre,
+            imagen: categoria.imagen
         }
-      });
-      navigate("/admin");
-}
+        const response = await crud.PUT(`/api/categorias/${idCategoria}`, data);
+        const mensaje = "La categoría se actualizó correctamente";
+        swal({
+            title:'Información',
+            text: mensaje,
+            icon: 'success',
+            buttons:{
+              confirm:{
+                text: 'OK',
+                value: true,
+                visible: true,
+                className: 'btn btn-primary',
+                closeModal: true
+              }
+            }
+          });
+          navigate("/admin");
+    }
 
 const onSubmit = (e) => {
     e.preventDefault();

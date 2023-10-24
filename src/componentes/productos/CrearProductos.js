@@ -10,7 +10,7 @@ const CrearProductos = () => {
   const navigate = useNavigate();
   const { idCategoria} = useParams();
 
-  const [categoria, setCategoria ] = useState({
+  const [producto, setProducto ] = useState({
     nombre:'',
     descripcion:'',
     stock:'',
@@ -20,23 +20,23 @@ const CrearProductos = () => {
   
   });
 
-  const { nombre, descripcion, stock, precio, imagen  } = categoria;
+  const { nombre, descripcion, stock, precio, imagen  } = producto;
 
 
   const onChange = (e) =>{
-      setCategoria({
-        ...categoria,
+      setProducto({
+        ...producto,
         [e.target.name]: e.target.value
       })
   };
 
-  const ingresarCategoria = async () =>{
+  const ingresarProducto = async () =>{
     const data = {
-      nombre: categoria.nombre,
-      descripcion: categoria.descripcion,
-      stock: categoria.stock,
-      precio: categoria.precio,
-      imagen: categoria.imagen,
+      nombre: producto.nombre,
+      descripcion: producto.descripcion,
+      stock: producto.stock,
+      precio: producto.precio,
+      imagen: producto.imagen,
       categoriaId: idCategoria
     }
    //console.log(data);
@@ -58,13 +58,13 @@ const CrearProductos = () => {
       }
     });
     //redireccionar nuevamente a la pagina de home
-    navigate(`/home-productos/${idCategoria}`);
+    navigate(`/new-product/${idCategoria}`);
     
   };
 
   const onSubmit = (e) =>{
     e.preventDefault();
-    ingresarCategoria();
+    ingresarProducto();
   }
 
 
@@ -87,7 +87,7 @@ const CrearProductos = () => {
                 <div className="my-5">
                   <label className="uppercase text-gray-600 block text-lx font-bold ">Nombre</label>
                   <input 
-                  type="nombre"
+                  type="text"
                   id="nombre"
                   name="nombre"
                   placeholder="Nombre"
@@ -117,7 +117,7 @@ const CrearProductos = () => {
                   />
                     <label className="uppercase text-gray-600 block text-lx font-bold">Precio</label>
                   <input 
-                  type="number"
+                  type=".number"
                   id="precio"
                   name="precio"
                   placeholder="Precio"
@@ -136,12 +136,13 @@ const CrearProductos = () => {
                   value={imagen}
                   onChange={onChange}
                   />
+                 
                 </div>
-              <input 
-                  type="submit"
-                  value="Crear Productos"
-                  className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-300 transition-colors"
-              />
+                <input 
+                  type="submit" 
+                  value="Crear Producto" 
+                  className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-900 transition-colors"
+                  />   
             </form>
           </div>
         </main>   

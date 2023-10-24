@@ -12,7 +12,8 @@ import Navbar from './componentes/Navbar'
 import ViewCategorias from './componentes/categorias/ViewCategorias';
 import ViewProductos from './componentes/productos/ViewProductos';
 import Contactenos from './componentes/Contactenos';
-
+import ActualizarProductos from './componentes/productos/ActualizarProductos';
+import NewProduct from './componentes/productos/NewProduct';
 
 function App(){
   return (
@@ -26,10 +27,12 @@ function App(){
         <Route path="/actualizar-categoria/:idCategoria" exact element= {<ActualizarCategoria/>}/>
         <Route path="/home-productos/:idCategoria" exact element= {<HomeProductos/>}/>
         <Route path="/crear-producto/:idCategoria" exact element= {<CrearProductos/>}/>
+        <Route path="/actualizar-producto/:idCategoria" exact element= {<ActualizarProductos/>}/>
         <Route path="/contactenos" exact element= {<Contactenos/>}/>
         <Route path="/navbar" exact element= {<Navbar/>}/>
         <Route path="/view-categorias" exact element= {<ViewCategorias/>}/>
         <Route path="/view-productos" exact element= {<ViewProductos/>}/>
+        <Route path="/new-product" exact element= {<NewProduct/>}/>
       </Routes>
     </Router>
   );
