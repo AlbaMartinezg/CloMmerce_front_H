@@ -58,7 +58,7 @@ const CrearProductos = () => {
       }
     });
     //redireccionar nuevamente a la pagina de home
-    navigate(`/new-product/${idCategoria}`);
+    navigate(`/home-productos/${idCategoria}`);
     
   };
 

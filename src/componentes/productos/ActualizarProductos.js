@@ -150,7 +150,7 @@ const onSubmit = (e) => {
                 </div>
               <input 
                   type="submit"
-                  value="Crear Productos"
+                  value="Actualizar Producto"
                   className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-300 transition-colors"
               />
             </form>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import crud from "../conexiones/crud";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
@@ -10,6 +10,7 @@ const Admin = () => {
   const navigate = useNavigate();
 
   
+  const { idCategoria} = useParams();
 
   useEffect(() =>{
     const autenticarUsuario = async () =>{
@@ -37,7 +38,7 @@ const Admin = () => {
   },[]);
 
 
-  const borrarCategoria = async (e, idCategoria) => {
+  const borrarCategoria = async (e, idCategoria) => {    
 
     swal({
       title: "Estas seguro de eliminar esta categoria?",
@@ -66,16 +67,14 @@ const Admin = () => {
    
   }
 
-  const actualizarCategoria = async ( idCategoria) =>{
-
-   
+  const actualizarCategoria = async ( idCategoria) =>{   
     
     navigate(`/actualizar-categoria/${idCategoria}`)
 
   }  
 
   const crearProductos = async (idCategoria) =>{
-    navigate(`/new-product/${idCategoria}`);
+    navigate(`/crear-producto/${idCategoria}`);
   }
 
   return (
